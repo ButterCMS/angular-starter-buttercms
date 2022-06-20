@@ -14,7 +14,7 @@ project to the provider of your choice.
 First, clone the repo and install the dependencies by running `npm install`
 
 ```bash
-git clone https: https://github.com/ButterCMS/angular-starter-buttercms
+git clone https://github.com/ButterCMS/angular-starter-buttercms
 cd angular-starter-buttercms
 npm install
 ```
