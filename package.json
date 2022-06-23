@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "~13.3.9",
     "@angular/router": "~13.3.9",
     "buttercms": "^1.2.9",
-    "ng-helmet": "^1.1.0",
     "rxjs": "~6.6.0",
     "tiny-slider": "^2.9.4",
     "tslib": "^2.0.0",
