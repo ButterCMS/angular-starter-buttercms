@@ -1,21 +1,4 @@
 <ng-container *ngIf="(posts || post); else loading">
-
-  <ng-container *ngIf="!pageLoading">
-    <app-seo
-      *ngIf="blogType !== 'post'"
-      [title]="'Sample Blog - ' + title"
-      [description]="'Sample blog powered by ButterCMS, showing ' + title"
-    >
-    </app-seo>
-    <app-seo
-      *ngIf="blogType === 'post'"
-      [title]="post.seo_title"
-      [description]="post.meta_description"
-      [image]="post.featured_image"
-    >
-    </app-seo>
-  </ng-container>
-
   <section [id]="(blogType === 'post') ? 'blog-header' : 'blog-roll'"
            [ngClass]="{'blog-roll-nav': blogType !== 'post','single-post-nav': blogType === 'post'}">
     <div class="container">

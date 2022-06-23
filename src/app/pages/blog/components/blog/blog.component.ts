@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ButtercmssdkService} from '../../../../services/buttercmssdk.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Meta} from "@angular/platform-browser";
+import {Meta, Title} from "@angular/platform-browser";
 
 enum BLOG_TYPE {
   ALL = 'all',
@@ -28,7 +28,8 @@ export class BlogComponent implements OnInit {
   constructor(private bCMSSDKService: ButtercmssdkService,
               private route: ActivatedRoute,
               private router: Router,
-              private meta: Meta) {
+              private meta: Meta,
+              public mTitle: Title) {
   }
 
   ngOnInit(): void {
@@ -53,7 +54,6 @@ export class BlogComponent implements OnInit {
   getPosts(typeParam, slugParam, searchParam) {
     this.pageLoading = true;
     this.title = 'all posts';
-    this.meta.addTag({name: 'description', content: 'Sample blog powered by ButterCMS, showing ' + this.title});
 
     let filterBy = {};
     if (searchParam) {
@@ -64,15 +64,22 @@ export class BlogComponent implements OnInit {
         .then(res => {
           this.posts = res.data.data;
           this.pageLoading = false;
+          this.setSeo();
         })
         .catch(_ => this.bCMSSDKService.navigateToNotFound());
     } else if (typeParam && !slugParam) {
-      // can be article
       this.bCMSSDKService.getButterCMS().post.retrieve(typeParam)
         .then(res => {
           this.blogType = BLOG_TYPE.POST;
           this.post = res.data.data;
           this.pageLoading = false;
+          this.mTitle.setTitle(this.post.seo_title);
+          this.meta.removeTag("name='description'");
+          this.meta.addTag({name: 'description', content: this.post.meta_description});
+          this.meta.removeTag("name='image'");
+          if (this.post.featured_image) {
+            this.meta.addTag({name: 'image', content: this.post.featured_image});
+          }
         })
         .catch(_ => this.bCMSSDKService.navigateToNotFound());
     } else {
@@ -84,6 +91,7 @@ export class BlogComponent implements OnInit {
               this.title = 'category: ' + res.data.data.name;
               this.brTitle = res.data.data.name;
               this.pageLoading = false;
+              this.setSeo();
             });
           filterBy = {category_slug: slugParam};
         } else if (typeParam === BLOG_TYPE.TAG) {
@@ -93,6 +101,7 @@ export class BlogComponent implements OnInit {
               this.title = 'tag: ' + res.data.data.name;
               this.brTitle = res.data.data.name;
               this.pageLoading = false;
+              this.setSeo();
             });
           filterBy = {tag_slug: slugParam};
         } else {
@@ -104,9 +113,17 @@ export class BlogComponent implements OnInit {
         .then(res => {
           this.posts = res.data.data;
           this.pageLoading = false;
+          this.setSeo();
         })
         .catch(_ => this.bCMSSDKService.navigateToNotFound());
     }
+  }
+
+  setSeo() {
+    this.mTitle.setTitle('Sample Blog - ' + this.title);
+    this.meta.removeTag("name='description'");
+    this.meta.removeTag("name='image'");
+    this.meta.addTag({name: 'description', content: 'Sample blog powered by ButterCMS, showing ' + this.title});
   }
 
 }
