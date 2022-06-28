@@ -19,7 +19,7 @@ export class LayoutComponent implements OnInit {
   }
 
   isApiToken(): boolean {
-    return !!process.env.NG_APP_ANGULAR_APP_BUTTER_CMS_API_KEY;
+    return !!process.env.NG_APP_ANGULAR_BUTTER_CMS_API_KEY;
   }
 
 }
