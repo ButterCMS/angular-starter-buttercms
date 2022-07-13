@@ -11,7 +11,6 @@ let argv = yargs
     demandOption: true,
   }).parseSync();
 
-console.log(argv)
 
 const isProduction = argv.environment === 'prod';
 
