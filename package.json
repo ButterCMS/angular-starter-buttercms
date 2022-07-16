@@ -20,17 +20,19 @@
     "@angular/platform-browser-dynamic": "^14.0.3",
     "@angular/router": "^14.0.3",
     "buttercms": "^1.2.9",
+    "dotenv": "^16.0.1",
     "rxjs": "~6.6.0",
     "tiny-slider": "^2.9.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^14.0.0",
     "@angular-devkit/build-angular": "^14.0.2",
     "@angular/cli": "^14.0.2",
     "@angular/compiler-cli": "^14.0.3",
-    "@ngx-env/builder": "^2.0.2",
     "@types/node": "^12.11.1",
-    "typescript": "~4.6.4"
+    "typescript": "~4.6.4",
+    "webpack": "^5.67.0"
   }
 }
