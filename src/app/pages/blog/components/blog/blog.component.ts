@@ -53,7 +53,7 @@ export class BlogComponent implements OnInit {
 
   getPosts(typeParam, slugParam, searchParam) {
     this.pageLoading = true;
-    this.title = 'all posts';
+    this.title = 'All posts';
 
     let filterBy = {};
     if (searchParam) {
