@@ -2,7 +2,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {MainPageComponent} from './components';
 import {BlogComponent} from "../blog/components";
 
-const MainPageRoutes: Routes = [
+/*const mainPageRoutes: Routes = [
   {
     path: '',
     children: [
@@ -11,6 +11,26 @@ const MainPageRoutes: Routes = [
         children: [
           {
             path: ':slug',
+            component: MainPageComponent
+          }
+        ]
+      }, {
+        path: '',
+        component: MainPageComponent
+      }
+    ]
+  }
+];*/
+
+const mainPageRoutes: Routes = [
+  {
+    path: '',
+    children: [
+      {
+        path: ':slug',
+        children: [
+          {
+            path: ':type',
             component: MainPageComponent
           }, {
             path: '',
@@ -25,4 +45,4 @@ const MainPageRoutes: Routes = [
   }
 ];
 
-export const MainPageRouting = RouterModule.forChild(MainPageRoutes);
+export const MainPageRouting = RouterModule.forChild(mainPageRoutes);
