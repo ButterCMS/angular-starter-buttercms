@@ -59,7 +59,7 @@ export class BlogComponent implements OnInit {
     if (searchParam) {
       this.blogType = BLOG_TYPE.SEARCH;
       this.brTitle = searchParam;
-      this.title = 'search results for ' + searchParam;
+      this.title = 'search results for query: ' + searchParam;
       this.bCMSSDKService.getButterCMS().post.search(searchParam)
         .then(res => {
           this.posts = res.data.data;
