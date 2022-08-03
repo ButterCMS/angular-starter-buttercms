@@ -53,13 +53,13 @@ export class BlogComponent implements OnInit {
 
   getPosts(typeParam, slugParam, searchParam) {
     this.pageLoading = true;
-    this.title = 'all posts';
+    this.title = 'All posts';
 
     let filterBy = {};
     if (searchParam) {
       this.blogType = BLOG_TYPE.SEARCH;
       this.brTitle = searchParam;
-      this.title = 'search results for ' + searchParam;
+      this.title = 'search results for query: ' + searchParam;
       this.bCMSSDKService.getButterCMS().post.search(searchParam)
         .then(res => {
           this.posts = res.data.data;

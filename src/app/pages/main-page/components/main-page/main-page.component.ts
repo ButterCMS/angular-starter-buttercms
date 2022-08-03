@@ -19,7 +19,8 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bCMSSDKService.getButterCMS().page.retrieve('landing-page', 'landing-page-with-components')
+    const slug = this.route.snapshot.params.slug;
+    this.bCMSSDKService.getButterCMS().page.retrieve('landing-page', slug?.length ? slug : 'landing-page-with-components')
       .then(res => {
         this.pageData = res.data.data.fields;
 
