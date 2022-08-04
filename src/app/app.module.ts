@@ -11,6 +11,12 @@ PathLocationStrategy.prototype.prepareExternalUrl = function(internal) {
   if (url === '') {
     return url;
   }
+  if (url.includes('search/?') && url.endsWith('%2F')) {
+    return url.slice(0, -3);
+  }
+  if (url.includes('search?')) {
+    return url.replace('search?', 'search/?');
+  }
   if (url.endsWith('/')) {
     return url;
   }
