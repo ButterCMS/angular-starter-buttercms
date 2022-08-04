@@ -1305,7 +1305,7 @@ p {
   font-size: 14px;
   font-weight: 500;
 }
-.single-post-meta-info li a img i, .blog-roll-card-meta-info li a img i {
+.single-post-meta-info li a img, .blog-roll-card-meta-info li a img {
   height: 35px;
   width: 35px;
   border-radius: 50%;
