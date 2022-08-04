@@ -79,8 +79,9 @@
                           </a>
                         </li>
                         <li>
-                          <a href="javascript:void(0)"><i
-                            class="lni lni-calendar"></i>{{post.published | date: "MM. dd. YYYY hh:mm:ss"}}
+                          <a href="javascript:void(0)">
+                            <i class="lni lni-calendar"></i>
+                            {{post.published | date: "MM. dd. YYYY hh:mm:ss"}}
                           </a>
                         </li>
                         <li *ngFor="let tag of post.tags">

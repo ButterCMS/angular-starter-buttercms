@@ -643,8 +643,8 @@ p {
     transform: rotate(-130deg);
   }
 }
-/*=========================== 
-	NAVBAR CSS 
+/*===========================
+	NAVBAR CSS
 ============================= */
 .navbar-area {
   position: absolute;
@@ -1305,12 +1305,15 @@ p {
   font-size: 14px;
   font-weight: 500;
 }
-.single-post-meta-info li a img, .blog-roll-card-meta-info li a img {
+.single-post-meta-info li a img i, .blog-roll-card-meta-info li a img i {
   height: 35px;
   width: 35px;
   border-radius: 50%;
   display: inline-block;
   margin-right: 12px;
+}
+.single-post-meta-info i, .blog-roll-card-meta-info i {
+  padding-right: 8px;
 }
 @media only screen and (min-width: 550px) {
   .single-post-meta-info li a img, .blog-roll-card-meta-info li a img {
