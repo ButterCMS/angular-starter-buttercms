@@ -1,0 +1,23 @@
+{
+    "name": "ButterCMS + Angular Starter Project ",
+    "description": "Drop-in proof-of-concept Angular app, fully integrated with your ButterCMS account.",
+    "repository": "https://github.com/ButterCMS/angular-starter-buttercms",
+    "logo": "https://cdn.buttercms.com/R3fbtvoRT2CqEQSmk8hb",
+    "keywords": [
+        "Angular",
+        "buttercms",
+        "cms",
+        "blog"
+    ],
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        }
+    ],
+    "env": {
+        "NG_APP_ANGULAR_BUTTER_CMS_API_KEY": {
+            "description": "The API token of your ButterCMS account",
+            "value": ""
+        }
+    }
+}
