@@ -24,8 +24,8 @@ export class MainPageComponent implements OnInit {
       .then(res => {
         this.pageData = res.data.data.fields;
 
-        this.title.setTitle(res.data.data.fields.seo.title);
-        this.meta.addTag({name: 'description', content: res.data.data.fields.seo.description.concat(' ')});
+        this.title.setTitle(res.data.data.fields['seo']['title']);
+        this.meta.addTag({name: 'description', content: res.data.data.fields['seo']['description'].concat(' ')});
 
         setTimeout(() => {
           const f = this.route.snapshot.fragment;
