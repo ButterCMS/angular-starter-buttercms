@@ -34,7 +34,12 @@
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "allowedCommonJsDependencies": [
+              "tiny-slider",
+              "buttercms",
+              "dotenv"
+            ]
           },
           "configurations": {
             "production": {
@@ -70,11 +75,11 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "angular-tour-of-heroes:build"
+            "buildTarget": "angular-tour-of-heroes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-tour-of-heroes:build:production"
+              "buildTarget": "angular-tour-of-heroes:build:production"
             }
           }
         },
@@ -108,11 +113,11 @@
               "path": "webpack.config.js"
             },
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-tour-of-heroes:serve"
+            "serverTarget": "angular-tour-of-heroes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-tour-of-heroes:serve:production"
+              "serverTarget": "angular-tour-of-heroes:serve:production"
             }
           }
         }
